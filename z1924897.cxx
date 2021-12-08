@@ -73,7 +73,7 @@ void processClientRequest(int connSock) {
     }
     
     char path[1024];
-    strncpy(path, &request[4], strlen(request)-4);
+    strncpy(path, &request[4], sizeof(request)-4);
     // if the path is '/'
     // add specified root directory to the path
     if (path[0] == '/') {
@@ -87,7 +87,8 @@ void processClientRequest(int connSock) {
     
     if (dirp == 0) {
         char fileName[1024];
-        strncpy(fileName, &request[5], strlen(request)-5);
+        
+        strncpy(fileName, &request[5], sizeof(request)-5);
         if (errno == ENOENT) {
             // directory does not exist
             strcpy(buffer, "Error: ");
