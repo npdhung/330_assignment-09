@@ -187,7 +187,7 @@ void processClientRequest(int connSock) {
 int main(int argc, char *argv[]) {
 
     if (argc != 3) {
-        cerr << "USAGE: TCPServerReadDir port pathname\n";
+        cerr << "USAGE: z1924897 port pathname\n";
         exit(EXIT_FAILURE);
     }
 
